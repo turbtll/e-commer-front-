@@ -7,15 +7,21 @@
 //         "updatedAt": "2023-05-30T13:05:30.221Z",
 //         "__v": 0
 
-
-
 export interface IProduct {
-    _id: string 
-    name :string
-    image:string 
-    description:string
-    price:number
-
+  _id: string;
+  name: string;
+  image: string;
+  description: string;
+  price: number;
 }
 
+export interface ICartItem {
+  name: string;
+  id: string;
+  price: number;
+  image: string;
+  quantity: number;
+  product: string;
+}
 
+export type RawCartItem = Pick<ICartItem, "image" | "name" | "product" | "price">;
