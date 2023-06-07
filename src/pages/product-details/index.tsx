@@ -10,14 +10,14 @@ import { RawCartItem } from "../../types";
 const ProductDetails = () => {
   const { id } = useParams();
 
-  const { addItemToCart, cart } = useGlobalStore();
-  console.log(cart);
+  const { addItemToCart } = useGlobalStore();
+
   const [product, setProduct] = useState<IProduct>();
 
   const getProduct = async () => {
     const response = await axiosProd.get(`products/${id}`);
     setProduct(response.data);
-    console.log(response);
+    // console.log(response);
   };
 
   useEffect(() => {
