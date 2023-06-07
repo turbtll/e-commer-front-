@@ -3,6 +3,7 @@ import Text from "../../components/text";
 import Icon from "../../components/icons";
 import { toast } from "react-hot-toast";
 import { getCartTotal } from "../../helpers";
+import Button from "../../components/button";
 
 const Cart = () => {
   const { cart, addItemToCart, removeItemFromCart } = useGlobalStore();
@@ -61,7 +62,7 @@ const Cart = () => {
           );
         })}
       </div>
-      <div className="my-82px">
+      <div className="my-[82px]">
         <div className="border-[1.8px] border-black"></div>
       </div>
 
@@ -69,6 +70,10 @@ const Cart = () => {
         <Text variant="subheading-two"> subtotal</Text>
         <Text variant="subheading-two"> USD $ {cartTotal}</Text>
       </div>
+
+      <Button  size="large" className="mb-[180px] w-full">
+          Proceed to Check out 
+      </Button>
     </section>
   );
 };

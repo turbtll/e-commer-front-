@@ -15,7 +15,7 @@ type ButtonProps = {
 
 } & JSX.IntrinsicElements["button"]
 
-const Button = ( {children,size="small",disabled,className,...props}: ButtonProps) => {
+const   Button = ( {children,size="small",disabled,className,...props}: ButtonProps) => {
   return (
   <button className={clsx( 
     sizes[size], 
