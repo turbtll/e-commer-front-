@@ -4,10 +4,12 @@ import Icon from "../../components/icons";
 import { toast } from "react-hot-toast";
 import { getCartTotal } from "../../helpers";
 import Button from "../../components/button";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { cart, addItemToCart, removeItemFromCart } = useGlobalStore();
   const cartTotal = getCartTotal(cart);
+  const navigate = useNavigate();
   return (
     <section className="mx-[50px]">
       <Text variant="heading-one" className="my-[82px]">
@@ -71,8 +73,14 @@ const Cart = () => {
         <Text variant="subheading-two"> USD $ {cartTotal}</Text>
       </div>
 
-      <Button  size="large" className="mb-[180px] w-full">
-          Proceed to Check out 
+      <Button
+        onClick={() => {
+          navigate("/checkout/shipping");
+        }}
+        size="large"
+        className="mb-[180px] w-full"
+      >
+        Proceed to Check out
       </Button>
     </section>
   );

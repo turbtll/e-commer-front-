@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 import Inspx from "inspx";
 import Header from "../components/header";
 import Footer from "../components/footer";
@@ -10,6 +10,7 @@ const Root = () => {
       <Outlet />
       <Footer />
       <Toaster />
+      <ScrollRestoration />
     </Inspx>
   );
 };

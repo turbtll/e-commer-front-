@@ -1,6 +1,6 @@
-import { useEffect, useState  } from "react";
+import { useEffect, useState } from "react";
 import Text from "../../components/text";
-import {  IProduct, RawCartItem } from "../../types";
+import { IProduct, RawCartItem } from "../../types";
 import axiosProd from "../../api/axios";
 import Button from "../../components/button";
 import { Link } from "react-router-dom";
@@ -9,8 +9,7 @@ import { toast } from "react-hot-toast";
 const Shop = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
 
-
-  const {addItemToCart} =useGlobalStore()
+  const { addItemToCart } = useGlobalStore();
 
   const getProducts = async () => {
     const results = await axiosProd.get("/products");
@@ -48,19 +47,17 @@ const Shop = () => {
           {products.map((e) => {
             return (
               <div className="" key={e._id}>
-             
-
-                  <Link to={`/shop/${e._id}`}>
-                <div className="rounded-[18px]">
-                  <img
-                    className="rounded-xl"
-                    src={e.image}
-                    alt={e.name}
-                    width={368}
-                    height={368}
+                <Link to={`/shop/${e._id}`}>
+                  <div className="rounded-[18px]">
+                    <img
+                      className="rounded-xl"
+                      src={e.image}
+                      alt={e.name}
+                      width={368}
+                      height={368}
                     />
-                </div>
-                    </Link>
+                  </div>
+                </Link>
 
                 <Text variant="heading-four" className="mt-4 mb-1  ">
                   {e.name}
@@ -73,15 +70,14 @@ const Shop = () => {
                   size="small"
                   className="mt-[28px]"
                   onClick={() => {
-                    const cartItem:RawCartItem = {
-                      image:e.image,
-                      name:e.name,
-                      price:e.price,
-                      product:e._id
-                    }
-                    addItemToCart(cartItem)
-                    toast.success("item added to cart")
-                    
+                    const cartItem: RawCartItem = {
+                      image: e.image,
+                      name: e.name,
+                      price: e.price,
+                      product: e._id,
+                    };
+                    addItemToCart(cartItem);
+                    toast.success("item added to cart");
                   }}
                 >
                   Add to bag
