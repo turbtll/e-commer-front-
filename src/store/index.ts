@@ -7,11 +7,25 @@ interface IGlobalStore {
   cart: ICartItem[];
   addItemToCart: (newProductItem: RawCartItem) => void;
   removeItemFromCart: (cartItem: ICartItem) => void;
+  clientSecret:string |undefined
+  updateClientSecret:(secret:string)=>void
+  emptyCart : ()=>void 
 }
 
 const useGlobalStore = create<IGlobalStore>()(
   persist(
     (set, get) => ({
+      clientSecret:undefined ,
+      emptyCart:()=>{
+      set({
+        cart:[]
+      })
+      },
+      updateClientSecret : (secret)=>{
+        set({
+          clientSecret :secret
+        })
+      },
       cart: [],
       addItemToCart: (newProductItem: RawCartItem) => {
         const { cart } = get();

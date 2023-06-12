@@ -10,18 +10,18 @@ const Header = () => {
   const itemsInCart = getCartLength(cart);
 
   return (
-    <header className=" flex item-center justify-between p-[8px] px-[12px] rounded-[26px] mt-[18px] mx-[50px] bg-[#f5f5f5] backdrop-blur-[10px]">
+    <header className=" flex item-center justify-between md:p-[8px] px-[12px] md:rounded-[26px] mt-[18px] md:mx-[50px] bg-[#f5f5f5] backdrop-blur-[10px]">
       <Link to={"/"}>
-        {" "}
+  
         <Logo />
       </Link>
 
       <div className="flex flex-row items-center space-x-[38px]">
         <Link to={"/shop"}>
-          <Text variant="caption-one">Shop</Text>
+          <Text variant="caption-one" className="text-xs md:text-base">Shop</Text>
         </Link>
         <Link to={"/about"}>
-          <Text variant="caption-one">About</Text>
+          <Text variant="caption-one" className="text-xs md:text-base" >About</Text>
         </Link>
         <Link to={"/cart"} className="relative">
           <Icon name="cart-icon"></Icon>

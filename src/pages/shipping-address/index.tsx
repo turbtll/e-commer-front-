@@ -8,8 +8,11 @@ import useGlobalStore from "../../store";
 import { getCartTotal } from "../../helpers";
 import { ICartItem } from "../../types";
 import axiosProd from "../../api/axios";
+import { useNavigate } from "react-router-dom";
 
 const ShippingAddress = () => {
+
+  const navigate = useNavigate()
   type FromData = {
     name: string;
     email: string;
@@ -29,18 +32,17 @@ const ShippingAddress = () => {
     orderItems: ICartItem[];
   };
 
-  const { cart } = useGlobalStore();
+  const { cart,updateClientSecret } = useGlobalStore();
 
   const cartTotal = getCartTotal(cart);
 
   const {
     register,
-    setValue,
     handleSubmit,
     getValues,
     formState: { errors },
   } = useForm<FromData>();
-  const onSubmit = handleSubmit(async (e) => {
+  const onSubmit = handleSubmit(async () => {
     try {
       const { address, city, email, name } = getValues();
       const orderDetails: OrderDetailsType = {
@@ -60,7 +62,12 @@ const ShippingAddress = () => {
       });
 
       console.log(response);
-    } catch (error) {}
+      updateClientSecret(response.data.clientSecret)
+
+      navigate('/checkout/payment')
+    } catch (error) {
+      console.log(error)
+    }
   });
 
   return (
@@ -68,7 +75,7 @@ const ShippingAddress = () => {
       <Text variant="heading-three" className="mb-7">
         Shipping address
       </Text>
-      <div className="grid grid-cols-2 gap-10">
+      <div className="grid md:grid-cols-2 gap-20 md:gap:10">
         <form className="max-w-xl">
           <div className="flex space-x-[18px]">
             <div className="flex flex-col items-start space-y-3 w-full">

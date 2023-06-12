@@ -6,6 +6,7 @@ import Text from "../../components/text.tsx";
 import Button from "../../components/button.tsx";
 import useGlobalStore from "../../store/index.ts";
 import { RawCartItem } from "../../types";
+import LazyLoad from 'react-lazy-load';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -26,14 +27,17 @@ const ProductDetails = () => {
 
   return (
     <>
-      <section className="mt-[82px] ">
-        <div className="grid grid-cols-2 mb-[180px] gap-10  mx-[50px]">
+      <section className="md:mt-[82px] mt-[32px]  ">
+        <div className="grid md:grid-cols-2 mb-[180px] gap-10 mx-[20px]   md:mx-[50px]">
           <div className="">
-            <img
+          <LazyLoad >
+          <img
               src={product?.image}
               alt={product?.name}
               className="aspect-[0.9] h-[619px]  object-cover rounded-3xl"
             />
+    </LazyLoad>
+         
           </div>
           <div className="">
             <Text variant="heading-one"> {product?.name}</Text>
@@ -44,7 +48,7 @@ const ProductDetails = () => {
             <Text variant="body-two"> {product?.description}</Text>
             <Button
               size="medium"
-              className="mt-14"
+              className="mt-14" 
               onClick={() => {
                 if (!product) return;
                 const cartitem: RawCartItem = {
@@ -65,12 +69,15 @@ const ProductDetails = () => {
           </div>
         </div>
         <div className="h-[622px] mb-[180px] overflow-hidden relative">
-          <img
+        <LazyLoad >
+        <img
             src="https://res.cloudinary.com/dbspz5tmg/image/upload/v1679743572/youtube/2023/march/komorebi-development/primaryimage_oblfj9.png"
             alt=" "
             height={622}
             className="h-[622px] object-cover w-full"
           />
+    </LazyLoad>
+   
           <svg
             width="200"
             height="78"

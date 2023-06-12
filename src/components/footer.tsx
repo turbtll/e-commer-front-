@@ -43,16 +43,16 @@ const Footer = () => {
         </div>
       </div>
       <div className="mt-[180px]">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between ">
           <div className="">
             <Text variant="caption-four" className="text-white">
               Do not sell my personal information <br /> © 2023 E-COMMER-T
             </Text>
           </div>
-          <div className="flex items-center space-x-[38px]">
+          <div className="flex items-center space-x-[38px] mx-[10px]">
             <Link
               to=""
-              className="w-[38px] h-[38px] rounded-[19px] bg-white flex items-center justify-center"
+              className="w-[20px] h-[20px] md:w-[38px] md:h-[38px] rounded-[19px] bg-white flex items-center justify-center"
             >
               <svg
                 width="24"
@@ -84,7 +84,7 @@ const Footer = () => {
             </Link>
             <Link
               to=""
-              className="w-[38px] h-[38px] rounded-[19px] bg-white flex items-center justify-center"
+              className="w-[20px] h-[20px] md:w-[38px] md:h-[38px] rounded-[19px] bg-white flex items-center justify-center"
             >
               <svg
                 width="24"
@@ -101,7 +101,7 @@ const Footer = () => {
             </Link>
             <Link
               to=""
-              className="w-[38px] h-[38px] rounded-[19px] bg-white flex items-center justify-center"
+              className="w-[20px] h-[20px] md:w-[38px] md:h-[38px] rounded-[19px] bg-white flex items-center justify-center"
             >
               <svg
                 width="24"
@@ -125,7 +125,7 @@ const Footer = () => {
             </Link>
             <Link
               to=""
-              className="w-[38px] h-[38px] rounded-[19px] bg-white flex items-center justify-center"
+              className="w-[20px] h-[20px] md:w-[38px] md:h-[38px] rounded-[19px] bg-white flex items-center justify-center"
             >
               <svg
                 width="24"

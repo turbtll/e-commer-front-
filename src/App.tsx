@@ -8,7 +8,9 @@ import Cart from "./pages/cart"
 import Shop from "./pages/shop"
 import About from "./pages/about"
 import ProductDetails from "./pages/product-details"
+import Payment from "./pages/payment"
 import ShippingAddress from "./pages/shipping-address"
+import Success from "./pages/success"
 
 
 const router = createBrowserRouter([
@@ -43,6 +45,14 @@ const router = createBrowserRouter([
       {
         path:"/checkout/shipping",
         element:<ShippingAddress/>
+      },
+      {
+        path:"/checkout/payment",
+        element:<Payment/>
+      },
+      {
+        path:"/success",
+        element:<Success/>
       }
     ]
   }

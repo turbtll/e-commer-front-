@@ -15,26 +15,25 @@ const Cart = () => {
       <Text variant="heading-one" className="my-[82px]">
         Shopping cart
       </Text>
-      <div className="space-y-[164px]">
+      <div className="md:space-y-[164px] space-y-[64px]">
         {cart.map((cartItem) => {
           return (
-            <div className="flex items-start justify-between " key={cartItem.id}>
-              <div className="mr-[50px]">
+            <div className="md:flex md:items-start md:justify-between " key={cartItem.id}>
+              <div className="md:mr-[50px]">
                 <img
-                  width={378}
-                  height={378}
-                  className="w-[378px] h-[378px] rounded-[18px] mr-[46px]"
+                
+                  className="md:w-[500px] w-full md:h-[300px] rounded-[18px] mr-[46px]"
                   src={cartItem.image}
                   alt={cartItem.name}
                 />
               </div>
 
-              <div className="flex flex-col w-full justify-between ">
+              <div className="flex flex-col w-full justify-between mt-[20px]">
                 <div className="flex justify-between">
                   <Text variant="subheading-two">{cartItem.name}</Text>
                   <Text variant="subheading-two">${cartItem.price}</Text>
                 </div>
-                <div className="mt-[124px] flex items-center spance-x-7 ">
+                <div className="md:mt-[124px] mt-[24px] flex items-center justify-center md:justify-normal spance-x-7 ">
                   <button
                     onClick={() => {
                       removeItemFromCart(cartItem);
